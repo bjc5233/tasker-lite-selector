@@ -1,0 +1,267 @@
+<TaskerData sr="" dvi="1" tv="4.9u3m">
+	<dmetric>1080.0,1920.0</dmetric>
+	<Project sr="proj0" ve="2">
+		<cdate>1505118790927</cdate>
+		<name>liteSelector</name>
+		<scenes>lite-selector</scenes>
+		<tids>119,91,118</tids>
+	</Project>
+	<Scene sr="scenelite-selector">
+		<cdate>1505108101362</cdate>
+		<edate>1505150389788</edate>
+		<heightLand>-1</heightLand>
+		<heightPort>400</heightPort>
+		<nme>lite-selector</nme>
+		<widthLand>-1</widthLand>
+		<widthPort>400</widthPort>
+		<WebElement sr="elements0" ve="2">
+			<flags>4</flags>
+			<geom>0,0,400,400,0,0,700,150</geom>
+			<Str sr="arg0" ve="3">selector</Str>
+			<Int sr="arg1" val="1"/>
+			<Str sr="arg2" ve="3">%LITE_SELECTOR_ROOT_PATH/show.html</Str>
+			<Int sr="arg3" val="1"/>
+			<Int sr="arg4" val="1"/>
+			<Int sr="arg5" val="0"/>
+			<Int sr="arg6" val="0"/>
+			<Int sr="arg7" val="0"/>
+			<RectElement sr="background">
+				<flags>4</flags>
+				<geom>-1,-1,-1,-1,-1,-1,-1,-1</geom>
+				<Str sr="arg0" ve="3"/>
+				<Int sr="arg1" val="0"/>
+				<Str sr="arg2" ve="3"/>
+				<Str sr="arg3" ve="3"/>
+				<Int sr="arg4" val="0"/>
+				<Str sr="arg5" ve="3">#FF000000</Str>
+				<Int sr="arg6" val="0"/>
+				<Int sr="arg7" val="0"/>
+			</RectElement>
+		</WebElement>
+		<PropertiesElement sr="props">
+			<Int sr="arg0" val="0"/>
+			<Int sr="arg1" val="0"/>
+			<Str sr="arg2" ve="3">#00F50000</Str>
+			<Int sr="arg3" val="0"/>
+			<Str sr="arg4" ve="3">lite_select</Str>
+			<Str sr="arg5" ve="3"/>
+			<Img sr="arg6" ve="2"/>
+			<Str sr="arg7" ve="3"/>
+		</PropertiesElement>
+	</Scene>
+	<Task sr="task118">
+		<cdate>1505126341069</cdate>
+		<edate>1505150430895</edate>
+		<id>118</id>
+		<nme>lite-selector-init</nme>
+		<pri>100</pri>
+		<Action sr="act0" ve="7">
+			<code>547</code>
+			<label>配置根路径</label>
+			<Str sr="arg0" ve="3">%LITE_SELECTOR_ROOT_PATH</Str>
+			<Str sr="arg1" ve="3">/storage/sdcard1/software_me/systemWallpaper/liteSelector</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+		</Action>
+		<Action sr="act1" ve="7">
+			<code>547</code>
+			<label>配置圆环大小</label>
+			<Str sr="arg0" ve="3">%lite_circle_radius</Str>
+			<Str sr="arg1" ve="3">120</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+		</Action>
+		<Action sr="act2" ve="7">
+			<code>547</code>
+			<label>配置lite选项</label>
+			<Str sr="arg0" ve="3">%lite_confs</Str>
+			<Str sr="arg1" ve="3">{name: "APP", task: "keyboard", fontSize: 14},
+{name: "译", task: "word"},
+{name: "森", task: "sound-round"},
+{name: "FTP", task: "启动手机FTP", fontSize: 14}</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+		</Action>
+		<Action sr="act3" ve="7">
+			<code>37</code>
+			<label>配置lite背景颜色</label>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%WALLPAPER_COLOR_RGB</lhs>
+					<op>12</op>
+					<rhs></rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act4" ve="7">
+			<code>547</code>
+			<Str sr="arg0" ve="3">%lite_background_color</Str>
+			<Str sr="arg1" ve="3">rgb(%WALLPAPER_COLOR_RGB)</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+		</Action>
+		<Action sr="act5" ve="7">
+			<code>43</code>
+		</Action>
+		<Action sr="act6" ve="7">
+			<code>547</code>
+			<Str sr="arg0" ve="3">%lite_background_color</Str>
+			<Str sr="arg1" ve="3">#666666</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+		</Action>
+		<Action sr="act7" ve="7">
+			<code>38</code>
+		</Action>
+		<Action sr="act8" ve="7">
+			<code>410</code>
+			<Str sr="arg0" ve="3">%LITE_SELECTOR_ROOT_PATH/show.html</Str>
+			<Str sr="arg1" ve="3">&lt;script type="text/javascript" src="%LITE_SELECTOR_ROOT_PATH/jquery-3.2.1.min.js"&gt;&lt;/script&gt;
+	&lt;script type="text/javascript" src="jquery-3.2.1.min.js"&gt;&lt;/script&gt;
+	&lt;style&gt;
+	#wheel {
+		color: #FFFFFF;
+		position:fixed;
+		top:0px;
+		left:0px;
+		font-size:18px;
+		list-style: none;
+		margin:0px 0px 0px -20px;
+		padding:0px;
+	}
+	#wheel li{
+		background-color: %lite_background_color;
+		border-radius: 30px;
+		width: 30px;
+		height: 30px;
+		line-height: 30px;
+		text-align: center;
+	}
+	&lt;/style&gt;
+&lt;body&gt;
+&lt;ul id="wheel"&gt;&lt;/ul&gt;
+&lt;script&gt;
+	var circleRadius = %lite_circle_radius;
+	var wheel = $("#wheel");
+	wheel.width(circleRadius);
+	wheel.height(circleRadius);
+
+	var confs = [%lite_confs];
+	
+	var angleLite = 90 / (confs.length + 1);
+	for (var i = 0; i &lt; confs.length; i++) {
+		var conf = confs[i];
+		var curAngle = angleLite * (i + 1);
+		var xLen = Math.sin(curAngle * Math.PI / 180) * circleRadius
+		var yLen = Math.cos(curAngle * Math.PI / 180) * circleRadius
+		var leftPoint = Math.round(xLen);
+		var topPoint = circleRadius - Math.round(yLen);
+		console.log(leftPoint + " " + topPoint);
+		var li = "&lt;li id='item" 
+				+ i + "' onclick='execTask(\"" 
+				+ conf.task + "\")' style='position: absolute; left: 0px; top: 120px;";
+		if (conf.fontSize) {
+			li += "font-size:" + conf.fontSize + "px;"
+		}
+		li += "'&gt;" + conf.name + "&lt;/li&gt;"
+		wheel.append(li);
+		$("#item" + i).animate({left: leftPoint + 'px', top: topPoint + 'px'}, 100);
+	}
+	
+	function execTask(task) {
+		console.log(task);
+    performTask(task, 5);
+		performTask("lite-selector-exit", 5);
+	}
+&lt;/script&gt;
+&lt;/body&gt;</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="1"/>
+		</Action>
+	</Task>
+	<Task sr="task119">
+		<cdate>1505126341069</cdate>
+		<edate>1505150227983</edate>
+		<id>119</id>
+		<nme>lite-selector-exit</nme>
+		<pri>100</pri>
+		<Action sr="act0" ve="7">
+			<code>49</code>
+			<Str sr="arg0" ve="3">lite-selector</Str>
+		</Action>
+	</Task>
+	<Task sr="task91">
+		<cdate>1504118499058</cdate>
+		<edate>1505150076201</edate>
+		<id>91</id>
+		<nme>lite-selector</nme>
+		<pri>7</pri>
+		<Action sr="act0" ve="7">
+			<code>130</code>
+			<Str sr="arg0" ve="3">lite-selector-init</Str>
+			<Int sr="arg1">
+				<var>%priority</var>
+			</Int>
+			<Str sr="arg2" ve="3"/>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Int sr="arg5" val="0"/>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%LITE_SELECTOR_ROOT_PATH</lhs>
+					<op>13</op>
+					<rhs></rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act1" ve="7">
+			<code>194</code>
+			<Str sr="arg0" ve="3">lite-selector</Str>
+			<Int sr="arg1" val="0"/>
+			<Str sr="arg2" ve="3">%is_scene_exist</Str>
+		</Action>
+		<Action sr="act2" ve="7">
+			<code>37</code>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%is_scene_exist</lhs>
+					<op>0</op>
+					<rhs>uncreated</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act3" ve="7">
+			<code>47</code>
+			<Str sr="arg0" ve="3">lite-selector</Str>
+			<Int sr="arg1" val="1"/>
+			<Int sr="arg2">
+				<var>0</var>
+			</Int>
+			<Int sr="arg3">
+				<var>200</var>
+			</Int>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="0"/>
+			<Int sr="arg6" val="1"/>
+			<Int sr="arg7" val="1"/>
+		</Action>
+		<Action sr="act4" ve="7">
+			<code>43</code>
+		</Action>
+		<Action sr="act5" ve="7">
+			<code>49</code>
+			<Str sr="arg0" ve="3">lite-selector</Str>
+		</Action>
+		<Action sr="act6" ve="7">
+			<code>38</code>
+		</Action>
+		<Img sr="icn" ve="2">
+			<nme>cust_menu_dropdown_panel_holo_light</nme>
+		</Img>
+	</Task>
+</TaskerData>
