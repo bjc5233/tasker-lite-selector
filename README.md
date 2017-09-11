@@ -20,3 +20,5 @@
 <div align=center><img height="960" width="540" src="https://github.com/bjc5233/tasker-lite-selector/raw/master/resources/Screenshot_2017-09-12-00-18-26-601.png"/></div>
 <br>
 <div align=center><img height="960" width="540" src="https://github.com/bjc5233/tasker-lite-selector/raw/master/resources/Screenshot_2017-09-12-00-57-49-640.png"/></div>
+<br>
+<div align=center><img height="480" width="270" src="https://github.com/bjc5233/tasker-lite-selector/raw/master/resources/ScreenRecord_2017-09-12-01-44-50.gif"/></div>
