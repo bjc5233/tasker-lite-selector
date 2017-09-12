@@ -4,7 +4,7 @@
 		<cdate>1505118790927</cdate>
 		<name>liteSelector</name>
 		<scenes>lite-selector</scenes>
-		<tids>119,91,118</tids>
+		<tids>118,91,119</tids>
 	</Project>
 	<Scene sr="scenelite-selector">
 		<cdate>1505108101362</cdate>
@@ -51,7 +51,7 @@
 	</Scene>
 	<Task sr="task118">
 		<cdate>1505126341069</cdate>
-		<edate>1505150430895</edate>
+		<edate>1505204601584</edate>
 		<id>118</id>
 		<nme>lite-selector-init</nme>
 		<pri>100</pri>
@@ -59,7 +59,7 @@
 			<code>547</code>
 			<label>配置根路径</label>
 			<Str sr="arg0" ve="3">%LITE_SELECTOR_ROOT_PATH</Str>
-			<Str sr="arg1" ve="3">/storage/sdcard1/software_me/systemWallpaper/liteSelector</Str>
+			<Str sr="arg1" ve="3">/storage/sdcard1/software_me/tasker/liteSelector</Str>
 			<Int sr="arg2" val="0"/>
 			<Int sr="arg3" val="0"/>
 			<Int sr="arg4" val="0"/>
@@ -87,7 +87,6 @@
 		</Action>
 		<Action sr="act3" ve="7">
 			<code>37</code>
-			<label>配置lite背景颜色</label>
 			<ConditionList sr="if">
 				<Condition sr="c0" ve="3">
 					<lhs>%WALLPAPER_COLOR_RGB</lhs>
@@ -186,7 +185,7 @@
 	</Task>
 	<Task sr="task119">
 		<cdate>1505126341069</cdate>
-		<edate>1505150227983</edate>
+		<edate>1505151229137</edate>
 		<id>119</id>
 		<nme>lite-selector-exit</nme>
 		<pri>100</pri>
@@ -197,7 +196,7 @@
 	</Task>
 	<Task sr="task91">
 		<cdate>1504118499058</cdate>
-		<edate>1505150076201</edate>
+		<edate>1505204606363</edate>
 		<id>91</id>
 		<nme>lite-selector</nme>
 		<pri>7</pri>
