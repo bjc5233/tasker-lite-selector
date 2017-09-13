@@ -3,8 +3,8 @@
 	<Project sr="proj0" ve="2">
 		<cdate>1505118790927</cdate>
 		<name>liteSelector</name>
-		<scenes>lite-selector,lite-selector2</scenes>
-		<tids>119,118,91</tids>
+		<scenes>lite-selector</scenes>
+		<tids>91,118,119</tids>
 	</Project>
 	<Scene sr="scenelite-selector">
 		<cdate>1505108101362</cdate>
@@ -49,52 +49,9 @@
 			<Str sr="arg7" ve="3"/>
 		</PropertiesElement>
 	</Scene>
-	<Scene sr="scenelite-selector2">
-		<cdate>1505108101362</cdate>
-		<edate>1505306014216</edate>
-		<heightLand>-1</heightLand>
-		<heightPort>584</heightPort>
-		<nme>lite-selector2</nme>
-		<widthLand>-1</widthLand>
-		<widthPort>600</widthPort>
-		<WebElement sr="elements0" ve="2">
-			<flags>4</flags>
-			<geom>0,0,600,583,0,0,700,150</geom>
-			<Str sr="arg0" ve="3">selector</Str>
-			<Int sr="arg1" val="1"/>
-			<Str sr="arg2" ve="3">%LITE_SELECTOR_ROOT_PATH/show.html</Str>
-			<Int sr="arg3" val="1"/>
-			<Int sr="arg4" val="1"/>
-			<Int sr="arg5" val="0"/>
-			<Int sr="arg6" val="0"/>
-			<Int sr="arg7" val="0"/>
-			<RectElement sr="background">
-				<flags>4</flags>
-				<geom>-1,-1,-1,-1,-1,-1,-1,-1</geom>
-				<Str sr="arg0" ve="3"/>
-				<Int sr="arg1" val="0"/>
-				<Str sr="arg2" ve="3"/>
-				<Str sr="arg3" ve="3"/>
-				<Int sr="arg4" val="0"/>
-				<Str sr="arg5" ve="3">#FF000000</Str>
-				<Int sr="arg6" val="0"/>
-				<Int sr="arg7" val="0"/>
-			</RectElement>
-		</WebElement>
-		<PropertiesElement sr="props">
-			<Int sr="arg0" val="0"/>
-			<Int sr="arg1" val="0"/>
-			<Str sr="arg2" ve="3">#53F50000</Str>
-			<Int sr="arg3" val="0"/>
-			<Str sr="arg4" ve="3">lite_select</Str>
-			<Str sr="arg5" ve="3"/>
-			<Img sr="arg6" ve="2"/>
-			<Str sr="arg7" ve="3"/>
-		</PropertiesElement>
-	</Scene>
 	<Task sr="task118">
 		<cdate>1505126341069</cdate>
-		<edate>1505306921391</edate>
+		<edate>1505307454037</edate>
 		<id>118</id>
 		<nme>lite-selector-init</nme>
 		<pri>100</pri>
@@ -305,7 +262,7 @@ function execTask(task, param) {
 	</Task>
 	<Task sr="task91">
 		<cdate>1504118499058</cdate>
-		<edate>1505304935729</edate>
+		<edate>1505307490155</edate>
 		<id>91</id>
 		<nme>lite-selector</nme>
 		<pri>7</pri>
