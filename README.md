@@ -7,18 +7,19 @@
 * 安装tasker
 * 导入tasker项目
 * [lite-selector-init]下配置根路径[LITE_SELECTOR_ROOT_PATH]变量为自己的路径，并在路径中放入[jquery-3.2.1.min.js]和[pay]文件夹
-* [lite-selector-init]下配置弹出圆环大小[lite_circle_radius]，默认值为[180]
+* [lite-selector-init]下配置弹出圆环大小[lite_circle_radius]，默认值为[190]
 * [lite-selector-init]下配置是否展示关闭按钮[lite_show_close_button]，默认值为[true]
 * [lite-selector-init]下配置菜单选项[lite_confs]，格式参考[resources->lite_confs_demo.txt]
 * 弹出菜单底色跟随壁纸，需要[tasker-common](https://github.com/bjc5233/tasker-common)中的[tasker-comm-wallpaper-color]模块支持
 * 默认第二圆环设置为支付宝微信的支付方式，需要[tasker-pay](https://github.com/bjc5233/tasker-pay)模块支持
 * 在桌面创建该任务的快捷方式
 * 点击快捷方式弹出界面，再次点击快捷方式退出；也可以使用xposed edge模块配置[长按menu键执行lite-selector任务]
-* 点击菜单执行对应的tasker任务
+* 点击菜单打开APP\执行tasker任务
 
 
 
 ### 更新
+* 2017-09-13版本中可配置打开APP\tasker任务
 * 2017-09-13版本中增加多圆环支持，默认添加支付宝微信支付方式
 * 2017-09-12版本中增加关闭按钮
 

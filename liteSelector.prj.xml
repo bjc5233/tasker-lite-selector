@@ -8,15 +8,15 @@
 	</Project>
 	<Scene sr="scenelite-selector">
 		<cdate>1505108101362</cdate>
-		<edate>1505306053242</edate>
+		<edate>1505317317919</edate>
 		<heightLand>-1</heightLand>
-		<heightPort>584</heightPort>
+		<heightPort>608</heightPort>
 		<nme>lite-selector</nme>
 		<widthLand>-1</widthLand>
-		<widthPort>600</widthPort>
+		<widthPort>605</widthPort>
 		<WebElement sr="elements0" ve="2">
 			<flags>4</flags>
-			<geom>0,0,600,584,0,0,700,150</geom>
+			<geom>0,0,605,608,0,0,700,150</geom>
 			<Str sr="arg0" ve="3">selector</Str>
 			<Int sr="arg1" val="1"/>
 			<Str sr="arg2" ve="3">%LITE_SELECTOR_ROOT_PATH/show.html</Str>
@@ -51,7 +51,7 @@
 	</Scene>
 	<Task sr="task118">
 		<cdate>1505126341069</cdate>
-		<edate>1505307454037</edate>
+		<edate>1505317389404</edate>
 		<id>118</id>
 		<nme>lite-selector-init</nme>
 		<pri>100</pri>
@@ -68,7 +68,7 @@
 			<code>547</code>
 			<label>配置圆环大小</label>
 			<Str sr="arg0" ve="3">%lite_circle_radius</Str>
-			<Str sr="arg1" ve="3">180</Str>
+			<Str sr="arg1" ve="3">190</Str>
 			<Int sr="arg2" val="0"/>
 			<Int sr="arg3" val="0"/>
 			<Int sr="arg4" val="0"/>
@@ -87,24 +87,26 @@
 			<label>配置lite选项</label>
 			<Str sr="arg0" ve="3">%lite_confs</Str>
 			<Str sr="arg1" ve="3">{
-	radius: 140,
+	radius: 145,
 	circles: [
-		{type: "text", task: "keyboard", text: "APP", style: "font-size: 14px;"},
-		{type: "text", task: "word", text: "译"},
-		{type: "text", task: "sound-round", text: "森"},
-		{type: "text", task: "启动手机FTP", text: "FTP", style: "font-size: 14px;"}
+		{eleType: "text", taskType: "tasker", taskName: "keyboard", text: "APP", style: "font-size: 14px;"},
+		{eleType: "text", taskType: "tasker", taskName: "word", text: "译"},
+		{eleType: "text", taskType: "tasker", taskName: "sound-round", text: "森"},
+		{eleType: "text", taskType: "tasker", taskName: "启动手机FTP", text: "FTP", style: "font-size: 14px;"},
+		{eleType: "text", taskType: "app", taskName: "com.dewmobile.kuaiya.web", text: "KY", style: "font-size: 14px;"},
+		{eleType: "text", taskType: "app", taskName: "net.dinglisch.android.taskerm", text: "tasker", style: "font-size: 10px;"},
 	]
 },
 {
-	radius: 180,
+	radius: 190,
 	circles: [
-		{type: "img", task: "pay-method", param: "zfb_sys", imgPath: "%LITE_SELECTOR_ROOT_PATH/pay/zfb_sys.png"},
-		{type: "img", task: "pay-method", param: "zfb_fkm", imgPath: "%LITE_SELECTOR_ROOT_PATH/pay/zfb_fkm.png"},
-		{type: "img", task: "pay-method", param: "zfb_sk", imgPath: "%LITE_SELECTOR_ROOT_PATH/pay/zfb_sk.png"},
-		{type: "img", task: "pay-method", param: "zfb_zz", imgPath: "%LITE_SELECTOR_ROOT_PATH/pay/zfb_zz.png"},
-		{type: "img", task: "pay-method", param: "wx_sys", imgPath: "%LITE_SELECTOR_ROOT_PATH/pay/wx_sys.png"},
-		{type: "img", task: "pay-method", param: "wx_fkm", imgPath: "%LITE_SELECTOR_ROOT_PATH/pay/wx_fkm.png"},
-		{type: "img", task: "pay-method", param: "wx_sk", imgPath: "%LITE_SELECTOR_ROOT_PATH/pay/wx_sk.png"}
+		{eleType: "img", taskType: "tasker", taskName: "pay-method", taskParam: "zfb_sys", imgPath: "%LITE_SELECTOR_ROOT_PATH/pay/zfb_sys.png"},
+		{eleType: "img", taskType: "tasker", taskName: "pay-method", taskParam: "zfb_fkm", imgPath: "%LITE_SELECTOR_ROOT_PATH/pay/zfb_fkm.png"},
+		{eleType: "img", taskType: "tasker", taskName: "pay-method", taskParam: "zfb_sk", imgPath: "%LITE_SELECTOR_ROOT_PATH/pay/zfb_sk.png"},
+		{eleType: "img", taskType: "tasker", taskName: "pay-method", taskParam: "zfb_zz", imgPath: "%LITE_SELECTOR_ROOT_PATH/pay/zfb_zz.png"},
+		{eleType: "img", taskType: "tasker", taskName: "pay-method", taskParam: "wx_sys", imgPath: "%LITE_SELECTOR_ROOT_PATH/pay/wx_sys.png"},
+		{eleType: "img", taskType: "tasker", taskName: "pay-method", taskParam: "wx_fkm", imgPath: "%LITE_SELECTOR_ROOT_PATH/pay/wx_fkm.png"},
+		{eleType: "img", taskType: "tasker", taskName: "pay-method", taskParam: "wx_sk", imgPath: "%LITE_SELECTOR_ROOT_PATH/pay/wx_sk.png"}
 	]
 }</Str>
 			<Int sr="arg2" val="0"/>
@@ -210,10 +212,10 @@ function appendCircleItems(circles, radius) {
 		
 		var li = document.createElement("li");
 		li.id = "item" + itemId;
-		if (circle.param) {
-			li.setAttribute("onclick", "execTask('" + circle.task + "', '" + circle.param + "')");
+		if (circle.taskParam) {
+			li.setAttribute("onclick", "execTask('" + circle.taskType + "', '" + circle.taskName + "', '" + circle.taskParam + "')");
 		} else {
-			li.setAttribute("onclick", "execTask('" + circle.task + "')");
+			li.setAttribute("onclick", "execTask('" + circle.taskType + "', '" + circle.taskName + "')");
 		}
 		
 		var style = "position: absolute; left: " 
@@ -224,9 +226,9 @@ function appendCircleItems(circles, radius) {
 		}
 		li.setAttribute("style", style);
 		
-		if (circle.type == "img") {
+		if (circle.eleType == "img") {
 			li.innerHTML = "&lt;img src='" + circle.imgPath + "'/&gt;"
-		} else if (circle.type == "text") {
+		} else if (circle.eleType == "text") {
 			li.innerText = circle.text;
 		}
 		wheel.append(li);
@@ -236,10 +238,14 @@ function appendCircleItems(circles, radius) {
 }
 
 
-function execTask(task, param) {
-	console.log(task);
-	if (task) {
-		performTask(task, 5, param);
+function execTask(taskType, taskName, taskParam) {
+	console.log(taskType, taskName, taskParam);
+	if (taskName) {
+		if (taskType == "tasker") {
+			performTask(taskName, 5, taskParam);
+		} else if (taskType == "app") {
+			loadApp(taskName)
+		}
 	}
 	performTask("lite-selector-exit", 5);
 }
@@ -251,7 +257,7 @@ function execTask(task, param) {
 	</Task>
 	<Task sr="task119">
 		<cdate>1505126341069</cdate>
-		<edate>1505151229137</edate>
+		<edate>1505316731245</edate>
 		<id>119</id>
 		<nme>lite-selector-exit</nme>
 		<pri>100</pri>
