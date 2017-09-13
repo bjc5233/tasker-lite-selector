@@ -1,0 +1,21 @@
+{
+	radius: 140,
+	circles: [
+		{type: "text", task: "keyboard", text: "APP", style: "font-size: 14px;"},
+		{type: "text", task: "word", text: "译"},
+		{type: "text", task: "sound-round", text: "森"},
+		{type: "text", task: "启动手机FTP", text: "FTP", style: "font-size: 14px;"}
+	]
+},
+{
+	radius: 180,
+	circles: [
+		{type: "img", task: "pay-method", param: "zfb_sys", imgPath: "%LITE_SELECTOR_ROOT_PATH/pay/zfb_sys.png"},
+		{type: "img", task: "pay-method", param: "zfb_fkm", imgPath: "%LITE_SELECTOR_ROOT_PATH/pay/zfb_fkm.png"},
+		{type: "img", task: "pay-method", param: "zfb_sk", imgPath: "%LITE_SELECTOR_ROOT_PATH/pay/zfb_sk.png"},
+		{type: "img", task: "pay-method", param: "zfb_zz", imgPath: "%LITE_SELECTOR_ROOT_PATH/pay/zfb_zz.png"},
+		{type: "img", task: "pay-method", param: "wx_sys", imgPath: "%LITE_SELECTOR_ROOT_PATH/pay/wx_sys.png"},
+		{type: "img", task: "pay-method", param: "wx_fkm", imgPath: "%LITE_SELECTOR_ROOT_PATH/pay/wx_fkm.png"},
+		{type: "img", task: "pay-method", param: "wx_sk", imgPath: "%LITE_SELECTOR_ROOT_PATH/pay/wx_sk.png"}
+	]
+}

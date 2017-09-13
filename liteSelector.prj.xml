@@ -3,20 +3,20 @@
 	<Project sr="proj0" ve="2">
 		<cdate>1505118790927</cdate>
 		<name>liteSelector</name>
-		<scenes>lite-selector</scenes>
-		<tids>119,91,118</tids>
+		<scenes>lite-selector,lite-selector2</scenes>
+		<tids>119,118,91</tids>
 	</Project>
 	<Scene sr="scenelite-selector">
 		<cdate>1505108101362</cdate>
-		<edate>1505150389788</edate>
+		<edate>1505306053242</edate>
 		<heightLand>-1</heightLand>
-		<heightPort>400</heightPort>
+		<heightPort>584</heightPort>
 		<nme>lite-selector</nme>
 		<widthLand>-1</widthLand>
-		<widthPort>400</widthPort>
+		<widthPort>600</widthPort>
 		<WebElement sr="elements0" ve="2">
 			<flags>4</flags>
-			<geom>0,0,400,400,0,0,700,150</geom>
+			<geom>0,0,600,584,0,0,700,150</geom>
 			<Str sr="arg0" ve="3">selector</Str>
 			<Int sr="arg1" val="1"/>
 			<Str sr="arg2" ve="3">%LITE_SELECTOR_ROOT_PATH/show.html</Str>
@@ -49,9 +49,52 @@
 			<Str sr="arg7" ve="3"/>
 		</PropertiesElement>
 	</Scene>
+	<Scene sr="scenelite-selector2">
+		<cdate>1505108101362</cdate>
+		<edate>1505306014216</edate>
+		<heightLand>-1</heightLand>
+		<heightPort>584</heightPort>
+		<nme>lite-selector2</nme>
+		<widthLand>-1</widthLand>
+		<widthPort>600</widthPort>
+		<WebElement sr="elements0" ve="2">
+			<flags>4</flags>
+			<geom>0,0,600,583,0,0,700,150</geom>
+			<Str sr="arg0" ve="3">selector</Str>
+			<Int sr="arg1" val="1"/>
+			<Str sr="arg2" ve="3">%LITE_SELECTOR_ROOT_PATH/show.html</Str>
+			<Int sr="arg3" val="1"/>
+			<Int sr="arg4" val="1"/>
+			<Int sr="arg5" val="0"/>
+			<Int sr="arg6" val="0"/>
+			<Int sr="arg7" val="0"/>
+			<RectElement sr="background">
+				<flags>4</flags>
+				<geom>-1,-1,-1,-1,-1,-1,-1,-1</geom>
+				<Str sr="arg0" ve="3"/>
+				<Int sr="arg1" val="0"/>
+				<Str sr="arg2" ve="3"/>
+				<Str sr="arg3" ve="3"/>
+				<Int sr="arg4" val="0"/>
+				<Str sr="arg5" ve="3">#FF000000</Str>
+				<Int sr="arg6" val="0"/>
+				<Int sr="arg7" val="0"/>
+			</RectElement>
+		</WebElement>
+		<PropertiesElement sr="props">
+			<Int sr="arg0" val="0"/>
+			<Int sr="arg1" val="0"/>
+			<Str sr="arg2" ve="3">#53F50000</Str>
+			<Int sr="arg3" val="0"/>
+			<Str sr="arg4" ve="3">lite_select</Str>
+			<Str sr="arg5" ve="3"/>
+			<Img sr="arg6" ve="2"/>
+			<Str sr="arg7" ve="3"/>
+		</PropertiesElement>
+	</Scene>
 	<Task sr="task118">
 		<cdate>1505126341069</cdate>
-		<edate>1505211829952</edate>
+		<edate>1505306921391</edate>
 		<id>118</id>
 		<nme>lite-selector-init</nme>
 		<pri>100</pri>
@@ -68,7 +111,7 @@
 			<code>547</code>
 			<label>配置圆环大小</label>
 			<Str sr="arg0" ve="3">%lite_circle_radius</Str>
-			<Str sr="arg1" ve="3">120</Str>
+			<Str sr="arg1" ve="3">180</Str>
 			<Int sr="arg2" val="0"/>
 			<Int sr="arg3" val="0"/>
 			<Int sr="arg4" val="0"/>
@@ -86,10 +129,27 @@
 			<code>547</code>
 			<label>配置lite选项</label>
 			<Str sr="arg0" ve="3">%lite_confs</Str>
-			<Str sr="arg1" ve="3">{name: "APP", task: "keyboard", fontSize: 14},
-{name: "译", task: "word"},
-{name: "森", task: "sound-round"},
-{name: "FTP", task: "启动手机FTP", fontSize: 14}</Str>
+			<Str sr="arg1" ve="3">{
+	radius: 140,
+	circles: [
+		{type: "text", task: "keyboard", text: "APP", style: "font-size: 14px;"},
+		{type: "text", task: "word", text: "译"},
+		{type: "text", task: "sound-round", text: "森"},
+		{type: "text", task: "启动手机FTP", text: "FTP", style: "font-size: 14px;"}
+	]
+},
+{
+	radius: 180,
+	circles: [
+		{type: "img", task: "pay-method", param: "zfb_sys", imgPath: "%LITE_SELECTOR_ROOT_PATH/pay/zfb_sys.png"},
+		{type: "img", task: "pay-method", param: "zfb_fkm", imgPath: "%LITE_SELECTOR_ROOT_PATH/pay/zfb_fkm.png"},
+		{type: "img", task: "pay-method", param: "zfb_sk", imgPath: "%LITE_SELECTOR_ROOT_PATH/pay/zfb_sk.png"},
+		{type: "img", task: "pay-method", param: "zfb_zz", imgPath: "%LITE_SELECTOR_ROOT_PATH/pay/zfb_zz.png"},
+		{type: "img", task: "pay-method", param: "wx_sys", imgPath: "%LITE_SELECTOR_ROOT_PATH/pay/wx_sys.png"},
+		{type: "img", task: "pay-method", param: "wx_fkm", imgPath: "%LITE_SELECTOR_ROOT_PATH/pay/wx_fkm.png"},
+		{type: "img", task: "pay-method", param: "wx_sk", imgPath: "%LITE_SELECTOR_ROOT_PATH/pay/wx_sk.png"}
+	]
+}</Str>
 			<Int sr="arg2" val="0"/>
 			<Int sr="arg3" val="0"/>
 			<Int sr="arg4" val="0"/>
@@ -130,7 +190,6 @@
 			<code>410</code>
 			<Str sr="arg0" ve="3">%LITE_SELECTOR_ROOT_PATH/show.html</Str>
 			<Str sr="arg1" ve="3">&lt;script type="text/javascript" src="%LITE_SELECTOR_ROOT_PATH/jquery-3.2.1.min.js"&gt;&lt;/script&gt;
-&lt;script type="text/javascript" src="jquery-3.2.1.min.js"&gt;&lt;/script&gt;
 &lt;style&gt;
 #wheel {
 	color: #FFFFFF;
@@ -150,51 +209,80 @@
 	line-height: 30px;
 	text-align: center;
 }
+
+#wheel li img{
+	width: 20px;
+	height: 20px;
+	padding-top: 5px;
+}
 &lt;/style&gt;
 &lt;body&gt;
 &lt;ul id="wheel"&gt;&lt;/ul&gt;
 &lt;script&gt;
-var circleRadius = %lite_circle_radius;
-var circleStartXPoint = 16;
-var circleStartYPoint = circleRadius - 17;
-var wheel = $("#wheel");
-wheel.width(circleRadius);
-wheel.height(circleRadius);
-
+var wheelLen = %lite_circle_radius;
 var confs = [%lite_confs];
-if (%lite_show_close_button) {
+var circleStartXPoint = 16;
+var circleStartYPoint = wheelLen - 17;
+var wheel = $("#wheel");
+wheel.width(wheelLen);
+wheel.height(wheelLen);
+if (true) {
 	var li = "&lt;li id='itemX' onclick='execTask()' style='position: absolute; left: " 
 			+ circleStartXPoint + "px; top: " 
 			+ circleStartYPoint + "px;'&gt;X&lt;/li&gt;";
 	wheel.append(li);
 }
 
-var angleLite = 90 / (confs.length + 1);
+
+var itemId = 0;
 for (var i = 0; i &lt; confs.length; i++) {
 	var conf = confs[i];
-	var curAngle = angleLite * (i + 1);
-	var xLen = Math.sin(curAngle * Math.PI / 180) * circleRadius
-	var yLen = Math.cos(curAngle * Math.PI / 180) * circleRadius
-	var leftPoint = Math.round(xLen);
-	var topPoint = circleRadius - Math.round(yLen);
-	console.log(leftPoint + " " + topPoint);
-	var li = "&lt;li id='item" 
-			+ i + "' onclick='execTask(\"" 
-			+ conf.task + "\")' style='position: absolute; left: " 
-			+ circleStartXPoint + "px; top: " 
-			+ circleStartYPoint + "px;";
-	if (conf.fontSize) {
-		li += "font-size:" + conf.fontSize + "px;"
+	appendCircleItems(conf.circles, conf.radius);
+}
+function appendCircleItems(circles, radius) {
+	var angleLite = 90 / (circles.length + 1);
+	for (var i = 0; i &lt; circles.length; i++) {
+		var circle = circles[i];
+		var curAngle = angleLite * (i + 1);
+		var xLen = Math.sin(curAngle * Math.PI / 180) * radius
+		var yLen = Math.cos(curAngle * Math.PI / 180) * radius
+		var leftPoint = Math.round(xLen);
+		var topPoint = wheelLen - Math.round(yLen);
+		console.log(leftPoint + " " + topPoint);
+		
+		
+		var li = document.createElement("li");
+		li.id = "item" + itemId;
+		if (circle.param) {
+			li.setAttribute("onclick", "execTask('" + circle.task + "', '" + circle.param + "')");
+		} else {
+			li.setAttribute("onclick", "execTask('" + circle.task + "')");
+		}
+		
+		var style = "position: absolute; left: " 
+					+ circleStartXPoint + "px; top: " 
+					+ circleStartYPoint + "px;";
+		if (circle.style) {
+			style += circle.style;
+		}
+		li.setAttribute("style", style);
+		
+		if (circle.type == "img") {
+			li.innerHTML = "&lt;img src='" + circle.imgPath + "'/&gt;"
+		} else if (circle.type == "text") {
+			li.innerText = circle.text;
+		}
+		wheel.append(li);
+		$("#item" + itemId).animate({left: leftPoint + 'px', top: topPoint + 'px'}, 100);
+		itemId ++;
 	}
-	li += "'&gt;" + conf.name + "&lt;/li&gt;"
-	wheel.append(li);
-	$("#item" + i).animate({left: leftPoint + 'px', top: topPoint + 'px'}, 100);
 }
 
-function execTask(task) {
+
+function execTask(task, param) {
 	console.log(task);
 	if (task) {
-		performTask(task, 5);
+		performTask(task, 5, param);
 	}
 	performTask("lite-selector-exit", 5);
 }
@@ -217,7 +305,7 @@ function execTask(task) {
 	</Task>
 	<Task sr="task91">
 		<cdate>1504118499058</cdate>
-		<edate>1505210891348</edate>
+		<edate>1505304935729</edate>
 		<id>91</id>
 		<nme>lite-selector</nme>
 		<pri>7</pri>
