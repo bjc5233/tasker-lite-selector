@@ -4,19 +4,19 @@
 		<cdate>1505118790927</cdate>
 		<name>liteSelector</name>
 		<scenes>lite-selector</scenes>
-		<tids>91,118,119</tids>
+		<tids>118,91,119</tids>
 	</Project>
 	<Scene sr="scenelite-selector">
 		<cdate>1505108101362</cdate>
-		<edate>1505317317919</edate>
+		<edate>1505554518693</edate>
 		<heightLand>-1</heightLand>
-		<heightPort>608</heightPort>
+		<heightPort>1320</heightPort>
 		<nme>lite-selector</nme>
 		<widthLand>-1</widthLand>
-		<widthPort>605</widthPort>
+		<widthPort>620</widthPort>
 		<WebElement sr="elements0" ve="2">
 			<flags>4</flags>
-			<geom>0,0,605,608,0,0,700,150</geom>
+			<geom>0,0,620,1320,0,0,700,150</geom>
 			<Str sr="arg0" ve="3">selector</Str>
 			<Int sr="arg1" val="1"/>
 			<Str sr="arg2" ve="3">%LITE_SELECTOR_ROOT_PATH/show.html</Str>
@@ -51,7 +51,7 @@
 	</Scene>
 	<Task sr="task118">
 		<cdate>1505126341069</cdate>
-		<edate>1505317389404</edate>
+		<edate>1505554574342</edate>
 		<id>118</id>
 		<nme>lite-selector-init</nme>
 		<pri>100</pri>
@@ -66,9 +66,12 @@
 		</Action>
 		<Action sr="act1" ve="7">
 			<code>547</code>
-			<label>配置圆环大小</label>
-			<Str sr="arg0" ve="3">%lite_circle_radius</Str>
-			<Str sr="arg1" ve="3">190</Str>
+			<label>圆环类型[1半圆  2全圆]
+需要调整场景宽高
+半圆时可用[620,660]
+全圆时可用[620,1320]</label>
+			<Str sr="arg0" ve="3">%lite_circle_style</Str>
+			<Str sr="arg1" ve="3">2</Str>
 			<Int sr="arg2" val="0"/>
 			<Int sr="arg3" val="0"/>
 			<Int sr="arg4" val="0"/>
@@ -85,7 +88,7 @@
 		<Action sr="act3" ve="7">
 			<code>547</code>
 			<label>配置lite选项</label>
-			<Str sr="arg0" ve="3">%lite_confs</Str>
+			<Str sr="arg0" ve="3">%lite_circle_confs</Str>
 			<Str sr="arg1" ve="3">{
 	radius: 145,
 	circles: [
@@ -178,14 +181,28 @@
 &lt;body&gt;
 &lt;ul id="wheel"&gt;&lt;/ul&gt;
 &lt;script&gt;
-var wheelLen = %lite_circle_radius;
-var confs = [%lite_confs];
-var circleStartXPoint = 16;
-var circleStartYPoint = wheelLen - 17;
+// 1-半圆 2-全圆 
+var circleStyle = %lite_circle_style;
+var circleShowClose = %lite_show_close_button;
+var circleConfs = [%lite_circle_confs];
+
+
+
+var angleTotal;
+if (circleStyle == 1) {
+	angleTotal = 90;
+} else if (circleStyle == 2) {
+	angleTotal = 180;
+}
+var wheelLen = 0;
+for (var i = 0; i &lt; circleConfs.length; i++) {
+	var conf = circleConfs[i];
+	wheelLen = (conf.radius &gt; wheelLen ? conf.radius :  wheelLen);
+}
+var circleStartXPoint = 15;
+var circleStartYPoint = wheelLen;
 var wheel = $("#wheel");
-wheel.width(wheelLen);
-wheel.height(wheelLen);
-if (true) {
+if (circleShowClose) {
 	var li = "&lt;li id='itemX' onclick='execTask()' style='position: absolute; left: " 
 			+ circleStartXPoint + "px; top: " 
 			+ circleStartYPoint + "px;'&gt;X&lt;/li&gt;";
@@ -194,20 +211,39 @@ if (true) {
 
 
 var itemId = 0;
-for (var i = 0; i &lt; confs.length; i++) {
-	var conf = confs[i];
+for (var i = 0; i &lt; circleConfs.length; i++) {
+	var conf = circleConfs[i];
 	appendCircleItems(conf.circles, conf.radius);
 }
 function appendCircleItems(circles, radius) {
-	var angleLite = 90 / (circles.length + 1);
-	for (var i = 0; i &lt; circles.length; i++) {
+	var angleLite = angleTotal / (circles.length + 1);
+	for (var i = 0; i &lt; circles.length; i++) {	
 		var circle = circles[i];
 		var curAngle = angleLite * (i + 1);
-		var xLen = Math.sin(curAngle * Math.PI / 180) * radius
-		var yLen = Math.cos(curAngle * Math.PI / 180) * radius
-		var leftPoint = Math.round(xLen);
-		var topPoint = wheelLen - Math.round(yLen);
-		console.log(leftPoint + " " + topPoint);
+		var leftPoint = 0;
+		var topPoint = 0;
+		
+		if (circleStyle == 1) {
+			var xLen = Math.sin(curAngle * Math.PI / 180) * radius;
+			var yLen = Math.cos(curAngle * Math.PI / 180) * radius;
+			leftPoint = Math.round(xLen);
+			topPoint = wheelLen - Math.round(yLen);
+		} else if (circleStyle == 2) {
+			if (curAngle &lt; 90) {
+				var xLen = Math.sin(curAngle * Math.PI / 180) * radius;
+				var yLen = Math.cos(curAngle * Math.PI / 180) * radius;
+				leftPoint = Math.round(xLen);
+				topPoint = wheelLen - Math.round(yLen);
+			} else if (curAngle == 90) {
+				var leftPoint = radius;
+				var topPoint = wheelLen;
+			} else {
+				var xLen = Math.sin((180 - curAngle) * Math.PI / 180) * radius;
+				var yLen = Math.cos((180 - curAngle) * Math.PI / 180) * radius;
+				leftPoint = Math.round(xLen);
+				topPoint = wheelLen + Math.round(yLen);
+			}
+		}
 		
 		
 		var li = document.createElement("li");
@@ -268,7 +304,7 @@ function execTask(taskType, taskName, taskParam) {
 	</Task>
 	<Task sr="task91">
 		<cdate>1504118499058</cdate>
-		<edate>1505307490155</edate>
+		<edate>1505555056981</edate>
 		<id>91</id>
 		<nme>lite-selector</nme>
 		<pri>7</pri>
@@ -314,7 +350,7 @@ function execTask(taskType, taskName, taskParam) {
 				<var>0</var>
 			</Int>
 			<Int sr="arg3">
-				<var>200</var>
+				<var>140</var>
 			</Int>
 			<Int sr="arg4" val="0"/>
 			<Int sr="arg5" val="0"/>

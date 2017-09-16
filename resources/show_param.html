@@ -1,0 +1,136 @@
+<script type="text/javascript" src="%LITE_SELECTOR_ROOT_PATH/jquery-3.2.1.min.js"></script>
+<style>
+#wheel {
+	color: #FFFFFF;
+	position:fixed;
+	top:0px;
+	left:0px;
+	font-size:18px;
+	list-style: none;
+	margin:0px 0px 0px -15px;
+	padding:0px;
+}
+#wheel li{
+	background-color: %lite_background_color;
+	border-radius: 30px;
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+}
+
+#wheel li img{
+	width: 20px;
+	height: 20px;
+	padding-top: 5px;
+}
+</style>
+<body>
+<ul id="wheel"></ul>
+<script>
+// 1-半圆 2-全圆 
+var circleStyle = %lite_circle_style;
+var circleShowClose = %lite_show_close_button;
+var circleConfs = [%lite_circle_confs];
+
+
+
+var angleTotal;
+if (circleStyle == 1) {
+	angleTotal = 90;
+} else if (circleStyle == 2) {
+	angleTotal = 180;
+}
+var wheelLen = 0;
+for (var i = 0; i < circleConfs.length; i++) {
+	var conf = circleConfs[i];
+	wheelLen = (conf.radius > wheelLen ? conf.radius :  wheelLen);
+}
+var circleStartXPoint = 15;
+var circleStartYPoint = wheelLen;
+var wheel = $("#wheel");
+if (circleShowClose) {
+	var li = "<li id='itemX' onclick='execTask()' style='position: absolute; left: " 
+			+ circleStartXPoint + "px; top: " 
+			+ circleStartYPoint + "px;'>X</li>";
+	wheel.append(li);
+}
+
+
+var itemId = 0;
+for (var i = 0; i < circleConfs.length; i++) {
+	var conf = circleConfs[i];
+	appendCircleItems(conf.circles, conf.radius);
+}
+function appendCircleItems(circles, radius) {
+	var angleLite = angleTotal / (circles.length + 1);
+	for (var i = 0; i < circles.length; i++) {	
+		var circle = circles[i];
+		var curAngle = angleLite * (i + 1);
+		var leftPoint = 0;
+		var topPoint = 0;
+		
+		if (circleStyle == 1) {
+			var xLen = Math.sin(curAngle * Math.PI / 180) * radius;
+			var yLen = Math.cos(curAngle * Math.PI / 180) * radius;
+			leftPoint = Math.round(xLen);
+			topPoint = wheelLen - Math.round(yLen);
+		} else if (circleStyle == 2) {
+			if (curAngle < 90) {
+				var xLen = Math.sin(curAngle * Math.PI / 180) * radius;
+				var yLen = Math.cos(curAngle * Math.PI / 180) * radius;
+				leftPoint = Math.round(xLen);
+				topPoint = wheelLen - Math.round(yLen);
+			} else if (curAngle == 90) {
+				var leftPoint = radius;
+				var topPoint = wheelLen;
+			} else {
+				var xLen = Math.sin((180 - curAngle) * Math.PI / 180) * radius;
+				var yLen = Math.cos((180 - curAngle) * Math.PI / 180) * radius;
+				leftPoint = Math.round(xLen);
+				topPoint = wheelLen + Math.round(yLen);
+			}
+		}
+		
+		
+		var li = document.createElement("li");
+		li.id = "item" + itemId;
+		if (circle.taskParam) {
+			li.setAttribute("onclick", "execTask('" + circle.taskType + "', '" + circle.taskName + "', '" + circle.taskParam + "')");
+		} else {
+			li.setAttribute("onclick", "execTask('" + circle.taskType + "', '" + circle.taskName + "')");
+		}
+		
+		var style = "position: absolute; left: " 
+					+ circleStartXPoint + "px; top: " 
+					+ circleStartYPoint + "px;";
+		if (circle.style) {
+			style += circle.style;
+		}
+		li.setAttribute("style", style);
+		
+		if (circle.eleType == "img") {
+			li.innerHTML = "<img src='" + circle.imgPath + "'/>"
+		} else if (circle.eleType == "text") {
+			li.innerText = circle.text;
+		}
+		wheel.append(li);
+		$("#item" + itemId).animate({left: leftPoint + 'px', top: topPoint + 'px'}, 100);
+		itemId ++;
+	}
+}
+
+
+function execTask(taskType, taskName, taskParam) {
+	console.log(taskType, taskName, taskParam);
+	if (taskName) {
+		if (taskType == "tasker") {
+			performTask(taskName, 5, taskParam);
+		} else if (taskType == "app") {
+			loadApp(taskName)
+		}
+	}
+	performTask("lite-selector-exit", 5);
+}
+</script>
+</body>
